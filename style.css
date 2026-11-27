@@ -1,0 +1,619 @@
+/* ==========================================================
+   Body Scent — Shared theme
+   Premium · minimal · cream & bronze
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+Thai:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500&display=swap");
+
+/* ---------- Tokens ---------- */
+:root {
+  /* Base palette */
+  --white: #fdfcf9;
+  --cream: #f6f0e4;
+  --beige: #e6dac4;
+  --beige-deep: #b9a584;
+  --ink: #2b2620;
+  --ink-soft: #6b6155;
+
+  /* Accent: soft gold / bronze */
+  --accent: #a98a52;
+  --accent-deep: #876c3b;
+
+  /* Lines */
+  --line: #3a332a;
+  --line-soft: #d8cbb2;
+
+  /* Mood colors (small touches only) */
+  --mood-fresh: #2f5a43;
+  --mood-sweet: #7a5a99;
+  --mood-confident: #3f4f61;
+  --mood-romance: #c46a6a;
+
+  /* Type */
+  --font-display: "Cormorant Garamond", "Noto Serif Thai", Georgia, serif;
+  --font-serif: "Noto Serif Thai", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+
+  --maxw: 1120px;
+  --maxw-narrow: 640px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-deep);
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent-deep);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+h1 { font-size: clamp(2.2rem, 5.2vw, 4rem); line-height: 1.25; font-weight: 400; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+  margin: 0 0 var(--space-3);
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+small, .muted {
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--maxw-narrow);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.section {
+  padding: var(--space-6) 0;
+}
+
+.section-cream {
+  background: var(--cream);
+}
+
+.page-title {
+  padding: var(--space-6) 0 var(--space-4);
+  text-align: center;
+}
+
+.page-title p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* thin gold rule under headings */
+.rule {
+  display: block;
+  width: 56px;
+  height: 1px;
+  margin: var(--space-3) auto 0;
+  background: var(--accent);
+  border: 0;
+}
+
+.rule-left { margin-left: 0; }
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--white);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-4);
+  font-size: 0.95rem;
+}
+
+.nav a {
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2.6rem;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+.btn-accent {
+  border-color: var(--accent-deep);
+  color: var(--accent-deep);
+}
+
+.btn-accent:hover {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+  color: var(--white);
+}
+
+.btn-small {
+  padding: 0.6rem 1.6rem;
+  font-size: 0.875rem;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-6) var(--space-3);
+  background:
+    linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+}
+
+.hero-inner {
+  max-width: 820px;
+}
+
+.hero h1 {
+  margin-bottom: var(--space-4);
+}
+
+.hero p {
+  margin: 0 auto var(--space-4);
+}
+
+/* ---------- Mood system ---------- */
+[data-mood="fresh"]     { --mood: var(--mood-fresh); }
+[data-mood="sweet"]     { --mood: var(--mood-sweet); }
+[data-mood="confident"] { --mood: var(--mood-confident); }
+[data-mood="romance"]   { --mood: var(--mood-romance); }
+
+/* small dot — use beside titles / labels */
+.mood-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 0.6rem;
+  border-radius: 50%;
+  background: var(--mood, var(--accent));
+  vertical-align: middle;
+}
+
+/* short colored line under a title */
+.mood-line {
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin: var(--space-2) 0;
+  background: var(--mood, var(--accent));
+}
+
+/* ---------- Mood cards (home) ---------- */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.mood-card {
+  display: block;
+  padding: var(--space-4) var(--space-3);
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.mood-card:hover {
+  border-color: var(--line);
+  color: inherit;
+}
+
+.mood-card h3 {
+  margin-bottom: var(--space-1);
+}
+
+.mood-card .mood-line {
+  margin: var(--space-2) auto;
+}
+
+.mood-card p {
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+/* ---------- Filter bar ---------- */
+#filter-bar,
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin: 0 auto var(--space-5);
+}
+
+.filter-btn {
+  padding: 0.55rem 1.6rem;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--line-soft);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.filter-btn.active,
+.filter-btn[aria-pressed="true"] {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+/* ---------- Product grid / card ---------- */
+#product-list,
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-4) var(--space-3);
+  padding-bottom: var(--space-6);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+  transition: border-color 0.3s ease;
+}
+
+.product-card:hover {
+  border-color: var(--line);
+}
+
+.product-card .product-image {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  object-fit: cover;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.product-card .product-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-3);
+}
+
+.product-card .product-name {
+  margin-bottom: 0;
+  font-size: 1.15rem;
+}
+
+.product-card .product-meta {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.product-card .product-desc {
+  flex: 1;
+  margin: 0 0 var(--space-3);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.product-card .product-price {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--accent-deep);
+}
+
+.product-card .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: var(--space-5) 0;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+/* ---------- Forms (order.html) ---------- */
+.form-card {
+  padding: var(--space-5) var(--space-4);
+  background: var(--white);
+  border: 1px solid var(--line-soft);
+}
+
+.field {
+  margin-bottom: var(--space-4);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 0;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  transition: border-color 0.25s ease;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-bottom-color: var(--accent-deep);
+}
+
+input[readonly],
+textarea[readonly] {
+  color: var(--ink);
+  border-bottom-style: dashed;
+}
+
+#total {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--accent-deep);
+}
+
+.form-card .btn {
+  width: 100%;
+}
+
+.form-message {
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ---------- Thank you ---------- */
+.thanks {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-6) var(--space-3);
+}
+
+.thanks p {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-4);
+}
+
+/* ---------- Table (admin.html) ---------- */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line-soft);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+th {
+  background: var(--cream);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover td {
+  background: var(--cream);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --space-4: 1.75rem;
+    --space-5: 3rem;
+    --space-6: 4rem;
+  }
+
+  .container {
+    padding: 0 var(--space-3);
+  }
+
+  .site-header .container {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .nav {
+    gap: var(--space-3);
+  }
+
+  .mood-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #product-list,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: var(--space-4) var(--space-3);
+  }
+
+  th,
+  td {
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
